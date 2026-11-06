@@ -5,6 +5,12 @@ on:
   schedule:
     - cron: "10 1,13 * * *"
   workflow_dispatch:      # 也可在 Actions 页面手动触发
+  push:
+    branches: [main]
+    # 只由「代码/配置变更」触发；机器人提交的数据文件不触发，避免自我循环
+    paths-ignore:
+      - "data/**"
+      - "web/**"
 
 permissions:
   contents: write
