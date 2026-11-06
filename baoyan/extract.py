@@ -513,6 +513,8 @@ _TRAIL_MORE = re.compile(
     r"\s*(?:详情|更多|查看|点击进入|如果您无法在线浏览|请点击|…+|\.{3,})\s*$"
 )
 _LEAD_DECOR = re.compile(r"^\s*(?:欢迎报考|欢迎报名|火热报名中|重磅|最新|关注|转发|点击)\s*[|｜丨]\s*")
+# 列表页的翻页链接（「上一条：xxx」「下一篇」）会被当成标题，需要剥掉
+_LEAD_NAV = re.compile(r"^\s*(?:上一条|下一条|上一篇|下一篇|返回列表|返回首页)\s*[:：]?\s*")
 _TITLE_END_WORDS = r"(?:通知|公告|章程|简章|说明|办法|方案|须知|要求|安排|细则|信息|意见|规定|工作)"
 _TITLE_END = re.compile(_TITLE_END_WORDS)
 _SENT_START = re.compile(
@@ -566,6 +568,7 @@ def clean_title(title: str) -> str:
     t = (title or "").strip()
     for _ in range(4):
         before = t
+        t = _LEAD_NAV.sub("", t)
         t = _LEAD_DECOR.sub("", t)
         t = _LEAD_MDY.sub("", t)
         t = _LEAD_INDEX.sub("", t)
