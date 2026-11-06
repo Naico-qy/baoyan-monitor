@@ -1,0 +1,9 @@
+# 运行日志与缓存
+logs/
+__pycache__/
+*.pyc
+*.pyo
+
+# 本地临时文件
+.study-pids.json
+.tmp*

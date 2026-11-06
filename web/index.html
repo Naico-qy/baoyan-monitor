@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>保研通知雷达 · 清北华五中九及院所 DDL 跟踪</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <span class="logo">◎</span>
+      <div>
+        <h1>保研通知雷达</h1>
+        <p class="sub">清北 · 华五 · 中九 · 中科院院所 · 新型研究机构 —— 官方渠道通知与截止日跟踪</p>
+      </div>
+    </div>
+    <div class="top-actions">
+      <span class="stamp" id="stamp">加载中…</span>
+      <a class="btn" href="baoyan.ics" download>📅 导出日历 (.ics)</a>
+      <button class="btn" id="copy-cmd" title="复制本地更新命令">⟳ 更新命令</button>
+    </div>
+  </div>
+</header>
+
+<section class="stats wrap" id="stats"></section>
+<div class="wrap" id="stale-banner"></div>
+
+<nav class="tabs wrap">
+  <button class="tab active" data-tab="ddl">截止日历 <span class="pill" id="tab-count-ddl"></span></button>
+  <button class="tab" data-tab="expect">预期节奏</button>
+  <button class="tab" data-tab="health">渠道健康 <span class="pill" id="tab-count-health"></span></button>
+  <button class="tab" data-tab="log">变更日志 <span class="pill" id="tab-count-log"></span></button>
+</nav>
+
+<main class="wrap">
+  <!-- ============ 截止日历 ============ -->
+  <section id="panel-ddl" class="panel">
+    <div class="filters">
+      <div class="chips" id="cat-chips"></div>
+      <div class="row">
+        <input id="q" type="search" placeholder="搜索院校 / 院系 / 标题（按 / 聚焦）">
+        <select id="f-tier">
+          <option value="">全部层次</option>
+          <option value="T1">T1 清华·北大</option>
+          <option value="T2">T2 华五</option>
+          <option value="T3">T3 中九/次九</option>
+          <option value="T4">T4 中科院·新型机构</option>
+        </select>
+        <select id="f-level">
+          <option value="">校/院/室 · 全部</option>
+          <option value="校">校（研招办统一）</option>
+          <option value="院">院（学院/学部）</option>
+          <option value="室">室（实验室/研究院）</option>
+        </select>
+        <select id="f-status">
+          <option value="live">未截止（含待定）</option>
+          <option value="">全部</option>
+          <option value="urgent">仅 7 天内截止</option>
+          <option value="open">仅 进行中</option>
+          <option value="upcoming">仅 未开始</option>
+          <option value="unknown">仅 待定/无明确截止</option>
+          <option value="closed">仅 已截止</option>
+        </select>
+        <select id="f-sort">
+          <option value="deadline">按截止时间</option>
+          <option value="published">按发布时间</option>
+          <option value="first_seen">按发现时间（新→旧）</option>
+          <option value="tier">按院校层次</option>
+        </select>
+        <label class="check"><input type="checkbox" id="f-star"> 只看我的收藏/已投递</label>
+        <button class="btn ghost" id="reset">重置</button>
+      </div>
+      <p class="hint" id="hint"></p>
+    </div>
+    <div id="ddl-list"></div>
+  </section>
+
+  <!-- ============ 预期节奏 ============ -->
+  <section id="panel-expect" class="panel hidden">
+    <p class="lead">按各渠道<strong>往年发布月份</strong>归纳的蹲守节奏。当前月份标红，方便提前准备材料。</p>
+    <div id="expect"></div>
+  </section>
+
+  <!-- ============ 渠道健康 ============ -->
+  <section id="panel-health" class="panel hidden">
+    <p class="lead">每个渠道的抓取状态与历史发布规律。<strong>已关联网页</strong>指本轮实际打开的入口/列表页。</p>
+    <div id="health"></div>
+  </section>
+
+  <!-- ============ 变更日志 ============ -->
+  <section id="panel-log" class="panel hidden">
+    <p class="lead">新发现的通知、官方修改的截止日期、以及抓取异常，都会记在这里。</p>
+    <div id="log"></div>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p>数据来源为各院校/院所<strong>官方网站</strong>公开页面，本页仅做聚合与截止日抽取；<strong>一切以官方原文为准</strong>。
+     抽取结果附「原文片段」便于核对，正则难免有误，投递前请点开原文确认。</p>
+  <p class="small">本地更新：<code>python -m baoyan run</code> ｜ 预览：<code>python -m baoyan serve</code> ｜ 收藏与投递状态保存在浏览器本地，可导出备份。</p>
+</footer>
+
+<div id="toast" class="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>

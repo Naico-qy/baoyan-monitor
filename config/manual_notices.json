@@ -1,0 +1,18 @@
+{
+  "_comment": "人工补充的通知。用于抓不到的渠道（如只在公众号/系统内发布），或你想手动记下的关键节点。字段：org/unit/tier/level/category/deadline 必填，其余可选。url 建议填官方原文链接；deadline 用 YYYY-MM-DD。",
+  "_example": {
+    "org": "上海交通大学",
+    "unit": "人工智能学院",
+    "tier": "T2",
+    "level": "院",
+    "category": "夏令营",
+    "title": "上海交通大学人工智能学院2027年夏令营报名通知（示例条目，可删除）",
+    "url": "https://example.edu.cn/notice",
+    "published_at": "2026-06-13",
+    "reg_start": "2026-06-13",
+    "deadline": "2026-07-04",
+    "cycle": "2027",
+    "note": "示例：用于演示人工录入格式"
+  },
+  "notices": []
+}
