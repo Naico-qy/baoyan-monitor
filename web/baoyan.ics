@@ -5,4 +5,17 @@ CALSCALE:GREGORIAN
 METHOD:PUBLISH
 X-WR-CALNAME:保研通知截止日
 X-WR-TIMEZONE:Asia/Shanghai
+BEGIN:VEVENT
+UID:baoyan-0-20261123-32143876@local
+DTSTAMP:20261113T131017Z
+DTSTART;VALUE=DATE:20261123
+SUMMARY:[保研截止] 关于开展东南大学2027年度本科直博生“至善优选”专项招生计划的通知
+DESCRIPTION:来源: 东南大学 研招办·各院系夏令营汇总\n类型: 联培/直博\n原文: 2026年11月23日\n链接: https://yzb.seu.edu.cn/2026/1113/c6677a589575/page.htm
+URL:https://yzb.seu.edu.cn/2026/1113/c6677a589575/page.htm
+BEGIN:VALARM
+TRIGGER:-P3D
+ACTION:DISPLAY
+DESCRIPTION:关于开展东南大学2027年度本科直博生“至善优选”专项招生计划的通知
+END:VALARM
+END:VEVENT
 END:VCALENDAR
