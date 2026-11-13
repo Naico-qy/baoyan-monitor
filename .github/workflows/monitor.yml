@@ -44,13 +44,20 @@ jobs:
         run: |
           git config user.name  "baoyan-bot"
           git config user.email "baoyan-bot@users.noreply.github.com"
+          branch="${GITHUB_REF_NAME:-main}"
           git add data web/data.json web/baoyan.ics
           if git diff --staged --quiet; then
             echo "本轮无变化"
           else
             git commit -m "chore(data): 自动更新保研通知 $(date -u '+%F %H:%M UTC')"
-            git push
+            git fetch origin "$branch"
+            git rebase "origin/$branch"
+            git push origin "HEAD:$branch"
           fi
+
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: 打包站点
         uses: actions/upload-pages-artifact@v3
