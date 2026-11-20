@@ -6,8 +6,8 @@ METHOD:PUBLISH
 X-WR-CALNAME:保研通知截止日
 X-WR-TIMEZONE:Asia/Shanghai
 BEGIN:VEVENT
-UID:baoyan-0-20261123-33590050@local
-DTSTAMP:20261119T213052Z
+UID:baoyan-0-20261123-3036681@local
+DTSTAMP:20261120T083833Z
 DTSTART;VALUE=DATE:20261123
 SUMMARY:[保研截止] 关于开展东南大学2027年度本科直博生“至善优选”专项招生计划的通知
 DESCRIPTION:来源: 东南大学 研招办·各院系夏令营汇总\n类型: 联培/直博\n原文: 2026年11月23日\n链接: https://yzb.seu.edu.cn/2026/1113/c6677a589575/page.htm
@@ -19,8 +19,8 @@ DESCRIPTION:关于开展东南大学2027年度本科直博生“至善优选”�
 END:VALARM
 END:VEVENT
 BEGIN:VEVENT
-UID:baoyan-1-20261207-67195732@local
-DTSTAMP:20261119T213052Z
+UID:baoyan-1-20261207-64400677@local
+DTSTAMP:20261120T083833Z
 DTSTART;VALUE=DATE:20261207
 SUMMARY:[保研截止] 【博士招生】信息学院（特色化示范性软件学院）2027年博士研究生“申请-考核”选拔办法
 DESCRIPTION:来源: 厦门大学 信息学院（特色化示范性软件学院）\n类型: 其他\n原文: 2026年12月7日\n链接: https://informatics.xmu.edu.cn/info/1072/205641.htm
